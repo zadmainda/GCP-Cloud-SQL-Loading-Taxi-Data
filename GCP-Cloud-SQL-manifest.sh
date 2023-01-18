@@ -24,3 +24,16 @@ export ADDRESS=$(wget -qO - http://ipecho.net/plain)/32
 #Whitelist Cloud Instance 
 gcloud sql instances patch taxi --authorized-networks $ADDRESS
 
+#When prompted press Y to accept the change.
+
+#Retrieve the Cloud SQL Instance IP adress 
+MYSQLIP=$(gcloud sql instances describe \
+taxi --format="value(ipAddresses.ipAddress)")
+
+#Confirm contents of the MYSQLIP -- Should output IP adress
+echo $MYSQLIP
+
+#Log into the mysql instance using your password
+mysql --host=$MYSQLIP --user=root \
+      --password --verbose
+
