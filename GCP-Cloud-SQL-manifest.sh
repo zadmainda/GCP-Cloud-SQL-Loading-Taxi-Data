@@ -37,3 +37,4 @@ echo $MYSQLIP
 mysql --host=$MYSQLIP --user=root \
       --password --verbose
 
+#Run SQL file code after logging into mys
