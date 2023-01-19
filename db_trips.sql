@@ -20,3 +20,31 @@ create table trips (
   pickup_location_id VARCHAR(16),
   dropoff_location_id VARCHAR(16)
 );
+
+
+-- Run after copying CVS files
+use bts;
+
+--batch-1
+LOAD DATA LOCAL INFILE 'trips.csv-1' INTO TABLE trips
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(vendor_id,pickup_datetime,dropoff_datetime,passenger_count,trip_distance,rate_code,store_and_fwd_flag,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,imp_surcharge,total_amount,pickup_location_id,dropoff_location_id);
+
+--batch-2
+LOAD DATA LOCAL INFILE 'trips.csv-2' INTO TABLE trips
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(vendor_id,pickup_datetime,dropoff_datetime,passenger_count,trip_distance,rate_code,store_and_fwd_flag,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,imp_surcharge,total_amount,pickup_location_id,dropoff_location_id);
+
+
+--Check data integrity
+select distinct(pickup_location_id) from trips;
+select
+  max(trip_distance),
+  min(trip_distance)
+from
+  trips;
+select count(*) from trips where trip_distance = 0;

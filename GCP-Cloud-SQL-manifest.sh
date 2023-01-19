@@ -37,4 +37,6 @@ echo $MYSQLIP
 mysql --host=$MYSQLIP --user=root \
       --password --verbose
 
-#Run SQL file code after logging into mys
+#Run SQL file code after logging into mysL to create db and table
+
+#Run GCP-Cloud-SQL-manidfest-2 after creating db and table
