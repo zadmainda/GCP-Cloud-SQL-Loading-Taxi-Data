@@ -4,6 +4,10 @@
 
 This project focuses on loading data from a CSV file in a Google Cloud Storage bucket into a cloud SQL instance
 
+Data Source: [NYC Taxi and Limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page). 
+
+Dataset description: Includes trip records from all trips completed in Yellow and Green taxis in NYC from 2009 to present, and all trips in for-hire vehicles (FHV) from 2015 to present. Records include fields capturing pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts.
+
 #### Objectives
 
 Create Cloud SQL instance
