@@ -39,4 +39,21 @@ Whitelist the Cloud Shell instance for management access to your SQL instance:
     gcloud sql instances patch taxi --authorized-networks $ADDRESS
 
 
+Get the IP address of your Cloud SQL instance by running:
 
+    >MYSQLIP=$(gcloud sql instances describe \
+    >taxi --format="value(ipAddresses.ipAddress)")
+
+Check the variable MYSQLIP:
+    >echo $MYSQLIP
+
+
+
+Create the taxi trips table by logging into the mysql command line interface:
+
+    >mysql --host=$MYSQLIP --user=root \
+        >--password --verbose
+
+When prompted for a password enter Passw0rd.
+
+Paste the Code in Section 1 of the SQL file into the command line to create the schema for the trips table:
